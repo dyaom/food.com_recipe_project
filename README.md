@@ -24,6 +24,38 @@ In order to generate an initial dataset for the analysis, I joined the two datas
 
 ## Assessment of Missingness
 
+For this section of the analysis, I will look at the missing ratings (as described in the Datasets section) within this dataset.
+
+### NMAR analysis
+
+The ratings data are most likely not missing at random (NMAR); that is, whether the values are missing depends on the missing value itself. Users tend to be more likely to post very positive (5) or very negative (1) ratings across all fields where reviews are collected; as a result, less extreme ratings tend to go unreported.
+
+Some examples of reviews paired with missing ratings include:
+
+- "Just asking...How can this be vegan if using eggs? Vegetarian, maybe, but not vegan. Am I missing something like recipe should read egg substitutes and not just eggs? Thanks for listening, more thanks for responding. :)"
+- "I haven't made this, but we called this opekansa. I haven't had this for many years."
+- "I am not star rating this because the cabbage was not grilled but cooked in the oven. It's best to use the technique indicated in the recipe. Tasted good though!"
+
+As can be seen, many missing ratings originate from reviews that didn't actually prepare the recipe, or from reviews who didn't express any strong feeling about the dish itself.
+
+### Missingness Dependency
+
+While it may be impossible to fully recover the missing ratings from the reviews above, the reviews do encode some information that differs between present and missing reviews.
+
+I compare the length of the review among present and missing ratings:
+
+<iframe src="assets/fig_miss1.html" width=600 height=450 frameBorder=0></iframe>
+
+The graph clearly shows that reviews with missing ratings tend to be shorter than those with present ratings. I ran a difference of means permutation test on these two populations; with a p-value of 0 in 10,000 iterations, it is almost certain that rating missingness depends on the review's length.
+
+In addition, this project required that I present a feature of the data that rating missingness was not dependent on. After searching through the features, I discovered that rating missingness was generally independent of the number of minutes it took to prepare the recipe. I compared the number of minutes among present and missing ratings (here, I plot only recipes that take less than one day to make):
+
+<iframe src="assets/fig_miss2.html" width=600 height=450 frameBorder=0></iframe>
+
+Although this distribution might also appear visibly different, a difference of means permutation test on the populations gave a p-value of 0.1226. As this p-value is relatively high, I fail to establish dependence between rating missingness and minutes to prepare.
+
+(Oddly enough, this was the only feature in the data I could find that rating missingness wasn't dependent on! I tried a variety of other features, ranging from those I found likely to correlate - average rating, number of steps, date reviewed - to those I thought would certainly not correlate - numerical recipe ID, length of the recipe's name. Every statistic I examined other than minutes to prepare correlated with a p-value of 0 in 1000 iterations.)
+
 ## Cleaning and EDA
 
 ### Data Cleaning
