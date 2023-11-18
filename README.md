@@ -46,7 +46,7 @@ I compare the length of the review among present and missing ratings:
 
 <iframe src="assets/fig_miss1.html" width=600 height=450 frameBorder=0></iframe>
 
-The graph clearly shows that reviews with missing ratings tend to be shorter than those with present ratings. I ran a difference of means permutation test on these two populations; with a p-value of 0 in 10,000 iterations, it is almost certain that rating missingness depends on the review's length.
+The graph clearly shows that reviews with missing ratings tend to be shorter than those with present ratings. I ran a difference of means permutation test on these two populations. With a p-value of 0 in 10,000 iterations, it is almost certain that rating missingness depends on the review's length; the difference in means in the observed sample is just too different compared to the difference in a sample randomly drawn under the assumption that the groups are the same.
 
 In addition, this project required that I present a feature of the data that rating missingness was not dependent on. After searching through the features, I discovered that rating missingness was generally independent of the number of minutes it took to prepare the recipe. I compared the number of minutes among present and missing ratings (here, I plot only recipes that take less than one day to make):
 
@@ -119,11 +119,10 @@ To recap, I've defined a "highly active user" as one who's published at least 10
 
 I propose the following hypotheses:
 
-**Null hypothesis**: The average rating for highly active authors is equal to the average rating for infrequent authors.
+**Null hypothesis**: The average rating for highly active authors is equal to the average rating for infrequent authors.  
 **Alternative hypothesis**: The average rating for highly active authors is greater than the average rating for infrequent authors.
 
-I will conduct a permutation test on the difference of means between the two samples. As per tradition, I use a significance level of 0.05.
-
+I conducted a permutation test on the difference of means between the two samples. As per tradition, I used a significance level of 0.05.
 
 <iframe src="assets/fig_permutation.html" width=600 height=450 frameBorder=0></iframe>
 
