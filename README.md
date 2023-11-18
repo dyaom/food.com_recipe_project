@@ -106,7 +106,10 @@ The distribution of average ratings by author is similar to the bivariate figure
 
 I aggregate the new dataframe , which divides the sample into authors who have published many recipes and authors who have not. While the num_recipes and log_recipes columns are expected, the aggregate table shows that authors who have published many recipes tend to have a slightly higher average rating than those who don't.
 
-|   ('num_recipes', 'count') |   ('num_recipes', 'mean') |   ('avg_rating', 'count') |   ('avg_rating', 'mean') |\n|---------------------------:|--------------------------:|--------------------------:|-------------------------:|\n|                      13813 |                   1.93383 |                     13813 |                  4.54111 |\n|                       1098 |                  49.6002  |                      1098 |                  4.61084 |
+|   ('num_recipes', 'count') |   ('num_recipes', 'mean') |   ('avg_rating', 'count') |   ('avg_rating', 'mean') |
+|---------------------------:|--------------------------:|--------------------------:|-------------------------:|
+|                      13813 |                   1.93383 |                     13813 |                  4.54111 |
+|                       1098 |                  49.6002  |                      1098 |                  4.61084 |
 
 ## Hypothesis Testing
 
